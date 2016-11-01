@@ -24,6 +24,7 @@ local.properties
 .gradle
 /*/local.properties
 /*/out
+target/
 build
 /*/*/production
 *.iml
@@ -32,3 +33,4 @@ build
 *~
 *.swp
 .DS_Store
+src/test/
