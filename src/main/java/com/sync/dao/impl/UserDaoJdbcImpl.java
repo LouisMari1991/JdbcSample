@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Administrator on 2016/11/2 0002.
@@ -34,7 +35,25 @@ public class UserDaoJdbcImpl implements UserDao {
   }
 
   public User getUser(int userId) {
-    return null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    User user = null;
+    try {
+      conn = JdbcUtils.getConnection();
+      String sql = "SELECT id,name,birthday,money from user where id=?";
+      ps = conn.prepareStatement(sql);
+      ps.setInt(1, userId);
+      rs = ps.executeQuery();
+      while (rs.next()) {
+        user = mappingUser(rs);
+      }
+    } catch (SQLException e) {
+      throw new DaoException(e.getMessage(), e);
+    } finally {
+      JdbcUtils.free(rs, ps, conn);
+    }
+    return user;
   }
 
   public void update(User user) {
@@ -42,10 +61,50 @@ public class UserDaoJdbcImpl implements UserDao {
   }
 
   public void delete(User user) {
-
+    Connection conn = null;
+    Statement st = null;
+    ResultSet rs = null;
+    try {
+      conn = JdbcUtils.getConnection();
+      st = conn.createStatement();
+      String sql = "DELETE FROM user WHERE id=" + user.getId();
+      st.executeUpdate(sql);
+    } catch (SQLException e) {
+      throw new DaoException(e.getMessage(), e);
+    } finally {
+      JdbcUtils.free(rs, st, conn);
+    }
   }
 
   public User findUser(String loginName, String password) {
-    return null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    User user = null;
+    try {
+      conn = JdbcUtils.getConnection();
+      String sql = "SELECT id,name,birthday,money from user where name=?";
+      ps = conn.prepareStatement(sql);
+      ps.setString(1, loginName);
+      rs = ps.executeQuery();
+      while (rs.next()) {
+        user = mappingUser(rs);
+      }
+    } catch (SQLException e) {
+      throw new DaoException(e.getMessage(), e);
+    } finally {
+      JdbcUtils.free(rs, ps, conn);
+    }
+    return user;
   }
+
+  private User mappingUser(ResultSet rs) throws SQLException {
+    User user = new User();
+    user.setId(rs.getInt("id"));
+    user.setName(rs.getString("name"));
+    user.setMoney(rs.getFloat("money"));
+    user.setBirthday(rs.getDate("birthday"));
+    return user;
+  }
+
 }
