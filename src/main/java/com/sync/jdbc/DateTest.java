@@ -6,8 +6,13 @@ package com.sync.jdbc;
 public class DateTest {
 
   public static void main(String[] args) {
+    test();
+  }
+
+  static void test(){
 
   }
+
 
   
 
