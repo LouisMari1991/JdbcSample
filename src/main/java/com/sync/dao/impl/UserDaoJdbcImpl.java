@@ -62,16 +62,13 @@ public class UserDaoJdbcImpl implements UserDao {
     ResultSet rs = null;
     try {
       conn = JdbcUtils.getConnection();
-      String sql = "UPDATE user SET birthday=?,money=? WHERE id=? AND name=?";
+      String sql = "UPDATE user SET name=?,birthday=?,money=? WHERE id=?";
       ps = conn.prepareStatement(sql);
-      ps.setDate(1,new java.sql.Date(user.getBirthday().getTime()));
-      ps.setFloat(2, user.getMoney());
-      ps.setInt(3, user.getId());
-      ps.setString(4, user.getName());
+      ps.setString(1, user.getName());
+      ps.setDate(2, new java.sql.Date(user.getBirthday().getTime()));
+      ps.setFloat(3, user.getMoney());
+      ps.setInt(4, user.getId());
       ps.executeUpdate();
-      while (rs.next()) {
-        user = mappingUser(rs);
-      }
     } catch (SQLException e) {
       throw new DaoException(e.getMessage(), e);
     } finally {
@@ -125,5 +122,4 @@ public class UserDaoJdbcImpl implements UserDao {
     user.setBirthday(rs.getDate("birthday"));
     return user;
   }
-
 }
