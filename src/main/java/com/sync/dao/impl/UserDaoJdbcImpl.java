@@ -57,7 +57,26 @@ public class UserDaoJdbcImpl implements UserDao {
   }
 
   public void update(User user) {
-
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    try {
+      conn = JdbcUtils.getConnection();
+      String sql = "UPDATE user SET birthday=?,money=? WHERE id=? AND name=?";
+      ps = conn.prepareStatement(sql);
+      ps.setDate(1,new java.sql.Date(user.getBirthday().getTime()));
+      ps.setFloat(2, user.getMoney());
+      ps.setInt(3, user.getId());
+      ps.setString(4, user.getName());
+      ps.executeUpdate();
+      while (rs.next()) {
+        user = mappingUser(rs);
+      }
+    } catch (SQLException e) {
+      throw new DaoException(e.getMessage(), e);
+    } finally {
+      JdbcUtils.free(rs, ps, conn);
+    }
   }
 
   public void delete(User user) {
