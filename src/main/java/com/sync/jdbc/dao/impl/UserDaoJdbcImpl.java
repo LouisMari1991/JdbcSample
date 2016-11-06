@@ -22,11 +22,15 @@ public class UserDaoJdbcImpl implements UserDao {
     try {
       conn = JdbcUtils.getConnection();
       String sql = "insert into user(name,birthday,money) values(?,?,?)";
-      ps = conn.prepareStatement(sql);
+      ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
       ps.setString(1, user.getName());
       ps.setDate(2, new java.sql.Date(user.getBirthday().getTime()));
       ps.setFloat(3, user.getMoney());
       ps.executeUpdate();
+
+      rs = ps.getGeneratedKeys();
+      if (rs.next())
+        user.setId(rs.getInt(1));
     } catch (SQLException e) {
       throw new DaoException(e.getMessage(), e);
     } finally {

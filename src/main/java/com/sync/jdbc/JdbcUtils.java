@@ -11,7 +11,7 @@ import java.sql.Statement;
  */
 public final class JdbcUtils {
 
-  private static String url = "jdbc:mysql://localhost:3306/jdbc";
+  private static String url = "jdbc:mysql://localhost:3306/jdbc?generateSimpleParameterMetadata=true";
   private static String user = "root";
   private static String password = "root";
 
