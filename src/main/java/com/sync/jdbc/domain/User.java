@@ -12,6 +12,18 @@ public class User {
   private Date birthday;
   private float money;
 
+  public User() {
+
+  }
+
+  public User(String name) {
+    this.name = name;
+  }
+
+  public User(float money) {
+    this.money = money;
+  }
+
   public int getId() {
     return id;
   }
@@ -42,5 +54,9 @@ public class User {
 
   public void setMoney(float money) {
     this.money = money;
+  }
+
+  @Override public String toString() {
+    return "User id=" + this.id + " name =" + this.name + " birthday=" + this.birthday + " money=" + this.money;
   }
 }
