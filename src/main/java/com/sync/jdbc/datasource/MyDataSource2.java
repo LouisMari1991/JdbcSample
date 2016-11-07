@@ -53,6 +53,6 @@ public class MyDataSource2 {
     //MyConnection myConnection = new MyConnection(conn, this);
     //return myConnection;
     MyConnectionHandler proxy = new MyConnectionHandler(this);
-    return  proxy.bind(conn);
+    return proxy.bind(conn);
   }
 }
