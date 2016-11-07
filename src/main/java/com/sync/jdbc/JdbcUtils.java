@@ -1,5 +1,7 @@
 package com.sync.jdbc;
 
+import com.sync.jdbc.datasource.MyDataSource;
+import com.sync.jdbc.datasource.MyDataSource2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,6 +17,8 @@ public final class JdbcUtils {
   private static String user = "root";
   private static String password = "root";
 
+  private static MyDataSource2 myDataSource = null;
+
   private JdbcUtils() {
     // no instance
   }
@@ -22,13 +26,15 @@ public final class JdbcUtils {
   static {
     try {
       Class.forName("com.mysql.jdbc.Driver");
+      myDataSource = new MyDataSource2();
     } catch (ClassNotFoundException e) {
       throw new ExceptionInInitializerError(e);
     }
   }
 
   public static Connection getConnection() throws SQLException {
-    return DriverManager.getConnection(url, user, password);
+    //return DriverManager.getConnection(url, user, password);
+    return myDataSource.getConnection();
   }
 
   public static void free(ResultSet rs, Statement st, Connection conn) {
@@ -48,8 +54,9 @@ public final class JdbcUtils {
       } finally {
         if (conn != null) {
           try {
-            conn.close();
-          } catch (SQLException e) {
+            //conn.close();
+            myDataSource.free(conn);
+          } catch (Exception e) {
             e.printStackTrace();
           }
         }

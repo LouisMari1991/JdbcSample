@@ -13,7 +13,13 @@ public class Base {
 
   public static void main(String[] args) throws Exception {
     //test();
-    template();
+    //template();
+
+    for (int i = 0; i < 15; i++) {
+      Connection conn = JdbcUtils.getConnection();
+      System.out.println(conn);
+      JdbcUtils.free(null, null, conn);
+    }
   }
 
   static void template() throws Exception {

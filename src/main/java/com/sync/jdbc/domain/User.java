@@ -16,6 +16,10 @@ public class User {
 
   }
 
+  public void showName() {
+    System.out.println(this.name);
+  }
+
   public User(String name) {
     this.name = name;
   }
