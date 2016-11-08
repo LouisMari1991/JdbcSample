@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * 利用Java反射技术将查询结果封装为对象
  * 对象关系映射:ORM
+ * 泛型的类型推断
  *
  * Created by Administrator on 2016/11/7 0007.
  */

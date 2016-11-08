@@ -15,12 +15,13 @@ public class Base {
     //test();
     //template();
 
-    //for (int i = 0; i < 15; i++) {
-    //  Connection conn = JdbcUtils.getConnection();
-    //  System.out.println(conn);
-    //  JdbcUtils.free(null, null, conn);
-    //}
-    template();
+    for (int i = 0; i < 10; i++) {
+      Connection conn = JdbcUtils.getConnection();
+      System.out.println(conn);
+      System.out.println(conn.getClass().getName());
+      JdbcUtils.free(null, null, conn);
+    }
+    //template();
   }
 
   static void template() throws Exception {
