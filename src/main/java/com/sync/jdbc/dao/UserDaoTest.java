@@ -1,6 +1,7 @@
 package com.sync.jdbc.dao;
 
 import com.sync.jdbc.dao.refactor.UserDaoImpl;
+import com.sync.jdbc.dao.refactor.UserDaoImpl2;
 import com.sync.jdbc.domain.User;
 import java.util.Date;
 
@@ -21,9 +22,12 @@ public class UserDaoTest {
 
     System.out.println(user.getId());
 
-    UserDaoImpl userDaoimpl = new UserDaoImpl();
-    User u = userDaoimpl.findUser(user.getName(), null);
+    UserDaoImpl2 userDaoimpl2 = new UserDaoImpl2();
+    User u = userDaoimpl2.findUser(user.getName(), null);
     System.out.println(u);
+
+    String name = userDaoimpl2.findUserName(user.getId());
+    System.out.println("name="+name);
 
 
     //
