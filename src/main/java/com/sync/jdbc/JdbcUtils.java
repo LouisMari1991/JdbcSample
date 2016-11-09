@@ -42,6 +42,10 @@ public final class JdbcUtils {
     }
   }
 
+  public static DataSource getDataSource() {
+    return myDataSource;
+  }
+
   public static Connection getConnection() throws SQLException {
     //return DriverManager.getConnection(url, user, password);
     return myDataSource.getConnection();
