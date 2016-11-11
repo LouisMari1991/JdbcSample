@@ -11,6 +11,7 @@ public class User {
   private String name;
   private Date birthday;
   private float money;
+  private Date regiestDate;
 
   public User() {
 
@@ -58,6 +59,14 @@ public class User {
 
   public void setMoney(float money) {
     this.money = money;
+  }
+
+  public Date getRegiestDate() {
+    return regiestDate;
+  }
+
+  public void setRegiestDate(Date regiestDate) {
+    this.regiestDate = regiestDate;
   }
 
   @Override public String toString() {
