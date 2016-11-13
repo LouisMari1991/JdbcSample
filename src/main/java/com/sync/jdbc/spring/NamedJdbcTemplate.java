@@ -14,7 +14,7 @@ import org.springframework.jdbc.support.KeyHolder;
 
 
 public class NamedJdbcTemplate {
-  
+
   static NamedParameterJdbcTemplate named = new NamedParameterJdbcTemplate(JdbcUtils.getDataSource());
 
   /**
