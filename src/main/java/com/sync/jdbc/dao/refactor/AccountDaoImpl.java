@@ -18,7 +18,7 @@ public class AccountDaoImpl extends AbstractDao<Account> {
   protected Account rowMapper(ResultSet rs) throws SQLException {
     Account account = new Account();
     account.setId(rs.getInt("id"));
-    // ...
+    // ... other operation
     return account;
   }
 }
