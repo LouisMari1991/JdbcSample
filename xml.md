@@ -139,17 +139,70 @@ b.ID属性的值只能由字母，下划线开始，不能出现空白字符。
 ]>
 
 <联系人列表>
-  <联系人 编号="1"> 
+  <联系人 编号="a1"> 
     <姓名>张三</姓名>
     <EMAIL>zhang@163.com</EMAIL>
   </联系人>  
-  <联系人 编号="2"> 
+  <联系人 编号="a2"> 
     <姓名>栗色</姓名>
     <EMAIL>lise@163.com</EMAIL>
   </联系人>
 </联系人列表>
 
 ```
+
+实体定义：
+1.实体用于为一段内容创建一个别名，以后在XML文档中就可以使用别名引用这段内容了。
+2.DTD定义中，一条 <!ENTITY ...> 语句用于定义一个实体。
+3.实体可以分为两种类型：引用实体和参数实体。
+
+定义实体→引用实体：
+1.语法格式：
+```
+<!ENTITY 实体名称 "实体内容" > : 直接转变成实体内容
+```
+
+2.引用方式：
+ ```
+ &实体名称;
+ ```
+ 
+3.举例：
+```
+<ENTITY copyright "I am a programmer">
+......
+&copyright;
+```
+
+参数实体：
+1.参数实体被DTD自身使用
+
+2.语法格式:
+<!ENTITY % 实体名称 "实体内容>
+
+2.引用方式：
+```
+%实体名称
+```
+
+3.举例1：
+```
+<!ENTITY % TAG_NAMES "姓名 | EMAIL | 电话 | 地址">
+
+<!ELEMENT 个人信息 (%TAG_NAMES; | 生日)>
+<!ELEMENT 客户信息 (%TAG_NAMES; | 公司名)>
+```
+
+举例2：
+<!ENTITY % common.attributes
+  "id ID #IMPLIED
+  account CDATA #REQUIRED "
+>
+
+...
+<!ATTLIST purchaseOrder %common.attributes;>
+<!ATTLIST item %common.attributes;>
+
 
 
 
