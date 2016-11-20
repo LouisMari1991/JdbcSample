@@ -102,3 +102,55 @@ DTD约束：(Document Type Definition)
   个人爱好 CDATA "上网
 >
 ```
+
+常用的属性值类型：
+1.CDATA:表示属性值为普通文本字符串。
+2.ENUMERATED(枚举)
+3.ID
+4.ENTITY(实体)
+
+
+属性值类型：
+ENUMERATED(枚举):属性的类型可以是一组取值的列表，在XML文件中设置的数值型只能是这个了表中的某个值(枚举)
+```
+<? xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE 购物篮[
+   <!ELEMENT 肉 EMPTY>
+   <!ATTLIST 肉 品种(鸡肉|牛肉|猪肉|鱼肉)"鸡肉">
+]>
+<购物篮>
+  <肉 品种="鱼肉"/>
+  <肉 品种="牛肉"/>
+  <肉/>
+</购物篮>
+```
+
+ID:
+a.表示属性的设置值为一个唯一的值
+b.ID属性的值只能由字母，下划线开始，不能出现空白字符。
+```
+<? xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE 联系人列表[
+  <!ELEMENT 联系人列表 ANY>
+  <!ELEMENT 联系人(姓名,EMAIL) ANY>
+  <!ELEMENT 姓名(#PCDATA) ANY>
+  <!ELEMENT EMAIL(#PCDATA) ANY>
+  <!ELEMENT 联系人 编号 ID #REQUIRED ANY>
+]>
+
+<联系人列表>
+  <联系人 编号="1"> 
+    <姓名>张三</姓名>
+    <EMAIL>zhang@163.com</EMAIL>
+  </联系人>  
+  <联系人 编号="2"> 
+    <姓名>栗色</姓名>
+    <EMAIL>lise@163.com</EMAIL>
+  </联系人>
+</联系人列表>
+
+```
+
+
+
+
