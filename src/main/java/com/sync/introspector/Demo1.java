@@ -11,7 +11,7 @@ import org.junit.Test;
 /**
  * Created by Administrator on 2016/11/20 0020.
  */
-public class Demo {
+public class Demo1 {
 
   /**
    * 得到Bean的所有属性
