@@ -115,7 +115,7 @@ public class Demo1 {
 
     ConvertUtils.register(new DateLocaleConverter(), Date.class);
     Person p = new Person();
-    BeanUtils.populate(p, map);
+    BeanUtils.populate(p, map); // 用map集合中的值,填充bean的属性
 
     System.out.println(p);
   }
