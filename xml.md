@@ -16,11 +16,11 @@ DTD约束：(Document Type Definition)
 
 1.当引用在本地时，采用如下方式：
 ```
-<!DOCTYEP 文档根节点 SYSTEM "DTD文件的URL">
+<!DOCTYPE 文档根节点 SYSTEM "DTD文件的URL">
 ```
 2.当引用的文件是一个公共的文件时，采用如下形式：
 ```
-<!DOCTYEP 文档根节点 PUBLIC "DTD名称" "DTD文件的URL">
+<!DOCTYPE 文档根节点 PUBLIC "DTD名称" "DTD文件的URL">
 ```
 <br/>
 

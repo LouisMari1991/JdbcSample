@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE CATELOG SYSTEM "G:\IdeaProjects\JDBC\src\main\resources\dtd\CATALOG.dtd">
+
+<CATELOG>
+  <PRODUCT NAME="asd"
+      CATEGORY="Shop-Professional">
+    <SPECIFICATIONS>abc</SPECIFICATIONS>
+    <OPTIONS>asdasdasd</OPTIONS>
+    <PRICE>aaaa</PRICE>
+    <NOTES>adasdasd</NOTES>
+  </PRODUCT>
+</CATELOG>
+
