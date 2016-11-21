@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE 书架 SYSTEM "..\..\..\..\..\main\resources\dtd\book.dtd">
+<!DOCTYPE 书架 SYSTEM "book.dtd">
 <书架>
   <书>
     <书名>&javaweb;</书名>
