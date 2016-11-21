@@ -103,7 +103,7 @@ DTD约束：(Document Type Definition)
 >
 ```
 
-常用的属性值类型：
+常用的属性值类型： 
 1.CDATA:表示属性值为普通文本字符串。
 2.ENUMERATED(枚举)
 3.ID
