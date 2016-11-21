@@ -194,6 +194,7 @@ b.ID属性的值只能由字母，下划线开始，不能出现空白字符。
 ```
 
 举例2：
+```
 <!ENTITY % common.attributes
   "id ID #IMPLIED
   account CDATA #REQUIRED "
@@ -202,7 +203,7 @@ b.ID属性的值只能由字母，下划线开始，不能出现空白字符。
 ...
 <!ATTLIST purchaseOrder %common.attributes;>
 <!ATTLIST item %common.attributes;>
-
+```
 
 
 
