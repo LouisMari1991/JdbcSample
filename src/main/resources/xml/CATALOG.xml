@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE CATELOG SYSTEM "G:\IdeaProjects\JDBC\src\main\resources\dtd\CATALOG.dtd">
+<!DOCTYPE CATELOG SYSTEM "../dtd/CATALOG.dtd">
 
 <CATELOG>
   <PRODUCT NAME="asd"

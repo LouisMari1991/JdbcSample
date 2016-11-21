@@ -3,6 +3,7 @@
     <!ELEMENT 书名 (#PCDATA)>
     <!ELEMENT 作者 (#PCDATA)>
     <!ELEMENT 售价 (#PCDATA)>
+    <!ATTLIST 书名 name CDATA #IMPLIED>
 
 <!--引用实体-->
 <!ENTITY javaweb "JavaWeb开发">

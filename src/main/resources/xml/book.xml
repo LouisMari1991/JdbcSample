@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE 书架 SYSTEM "book.dtd">
+<!DOCTYPE 书架 SYSTEM "../dtd/book.dtd">
 <书架>
   <书>
-    <书名>&javaweb;</书名>
+    <书名 name="hahaha">&javaweb;</书名>
     <作者>zzz</作者>
     <售价>19.9</售价>
   </书>
