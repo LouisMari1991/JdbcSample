@@ -1,9 +1,16 @@
 package com.sync.xml;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -75,6 +82,33 @@ public class DomDemo {
     String value = bookName.getAttribute("name");
     System.out.println(value);
   }
+
+  /**
+   * 向xml文档中添加节点：<售价>29.9</售价>
+   * @throws ParserConfigurationException
+   * @throws IOException
+   * @throws SAXException
+   */
+  @Test
+  public void add() throws ParserConfigurationException, IOException, SAXException, TransformerException {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document document = builder.parse("src/main/resources/xml/book.xml");
+
+    // 创建节点
+    Element price = document.createElement("售价");
+    price.setTextContent("29.9");
+
+    // 把创建的节点挂到第一本书上
+    Element book = (Element) document.getElementsByTagName("书").item(0);
+    book.appendChild(price);
+
+    // 把更新后的内存写回到xml文档
+    TransformerFactory tfFactory =  TransformerFactory.newInstance();
+    Transformer tf = tfFactory.newTransformer();
+    tf.transform(new DOMSource(document), new StreamResult(new FileOutputStream("src/main/resources/xml/book.xml")));
+  }
+
 
 
 }
