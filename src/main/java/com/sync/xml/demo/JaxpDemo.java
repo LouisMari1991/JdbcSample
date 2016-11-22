@@ -1,4 +1,4 @@
-package com.sync.xml;
+package com.sync.xml.demo;
 
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
