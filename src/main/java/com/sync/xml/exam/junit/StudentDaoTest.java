@@ -1,4 +1,4 @@
-package com.sync.xml.junit;
+package com.sync.xml.exam.junit;
 
 import com.sync.xml.exam.dao.StudentDao;
 import com.sync.xml.exam.domain.Student;
