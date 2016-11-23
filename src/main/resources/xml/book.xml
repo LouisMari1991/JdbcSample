@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE 书架 SYSTEM "../dtd/book.dtd">
-
 <书架>
-    <书>
-        <书名 name="zzz">JavaWeb开发</书名>
-        <作者>zzz</作者>
-        <售价>109元</售价>
-    </书>
-    <书>
-        <书名>JavaScript</书名>
-        <作者>mari</作者>
-        <售价>29.9</售价>
-    </书>
+  <书>
+    <书名>JavaWeb开发</书名>
+    <作者>zzz</作者>
+    <售价>109元</售价>
+    <售价>209元</售价>
+    <售价>209元</售价>
+  </书>
+  <书>
+    <书名 name="zzzz">JavaScript</书名>
+    <作者>mari</作者>
+    <售价>29.9</售价>
+  </书>
 </书架>

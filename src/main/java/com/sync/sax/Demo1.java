@@ -1,7 +1,6 @@
 package com.sync.sax;
 
 import java.io.IOException;
-import java.net.URLConnection;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -24,7 +23,7 @@ public class Demo1 {
     // 3.得到读取器
     XMLReader reader = sp.getXMLReader();
     // 4.设置内容处理器
-    //reader.setContentHandler();
+    reader.setContentHandler(new ListHandler());
     // 5.读取xml文档内容
     reader.parse("src/main/resources/xml/book.xml");
   }
@@ -54,10 +53,16 @@ class ListHandler implements ContentHandler {
 
   public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
     System.out.println("<" + qName + ">");
+
+    for (int i = 0; atts != null && i < atts.getLength(); i++) {
+      String attName = atts.getQName(i);
+      String attValue = atts.getValue(i);
+      System.out.println(attName + "=" + attValue);
+    }
   }
 
   public void endElement(String uri, String localName, String qName) throws SAXException {
-
+    System.out.println("<" + qName + ">");
   }
 
   public void characters(char[] ch, int start, int length) throws SAXException {
