@@ -54,7 +54,7 @@ public class Demo1 {
     Element book = document.getRootElement().element("书");
     book.addElement("售价").setText("209元");
 
-    OutputFormat format = OutputFormat.createCompactFormat();
+    OutputFormat format = OutputFormat.createPrettyPrint();
     format.setEncoding("UTF-8");
 
     XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"),format);
