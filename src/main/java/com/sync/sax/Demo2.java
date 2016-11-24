@@ -12,7 +12,7 @@ import org.xml.sax.helpers.DefaultHandler;
 /**
  * Created by Administrator on 2016/11/23 0023.
  */
-public class Demo2 {
+public class Demo2 {      
 
   public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
     // 1.创建解析工厂
