@@ -2,7 +2,6 @@ package com.sync.dom4j;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
@@ -61,4 +60,25 @@ public class Demo1 {
     writer.write(document);
     writer.close();
   }
+
+  /**
+   * 在指定位置添加
+   * @throws Exception
+   */
+  @Test
+  public void add2() throws Exception {
+    SAXReader reader = new SAXReader();
+    Document document = reader.read(new File("src/main/resources/xml/book.xml"));
+
+    Element book = document.getRootElement().element("书");
+    book.addElement("售价").setText("209元");
+
+    OutputFormat format = OutputFormat.createPrettyPrint();
+    format.setEncoding("UTF-8");
+
+    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"),format);
+    writer.write(document);
+    writer.close();
+  }
+
 }
