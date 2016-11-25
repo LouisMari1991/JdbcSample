@@ -2,7 +2,9 @@ package com.sync.dom4j;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -56,13 +58,14 @@ public class Demo1 {
     OutputFormat format = OutputFormat.createPrettyPrint();
     format.setEncoding("UTF-8");
 
-    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"),format);
+    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"), format);
     writer.write(document);
     writer.close();
   }
 
   /**
-   * 在指定位置添加
+   * 在指定位置添加, 更改保存了所有孩子的list集合
+   *
    * @throws Exception
    */
   @Test
@@ -71,12 +74,53 @@ public class Demo1 {
     Document document = reader.read(new File("src/main/resources/xml/book.xml"));
 
     Element book = document.getRootElement().element("书");
-    book.addElement("售价").setText("209元");
+    List list = book.elements(); // [书名, 售价, 作者]
+
+    Element price = DocumentHelper.createElement("售价");
+    price.setText("309元");
+
+    list.add(2, price);
 
     OutputFormat format = OutputFormat.createPrettyPrint();
     format.setEncoding("UTF-8");
 
-    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"),format);
+    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"), format);
+    writer.write(document);
+    writer.close();
+  }
+
+  /**
+   * 删除上面添加的节点
+   * @throws Exception
+   */
+  @Test
+  public void delete() throws Exception {
+    SAXReader reader = new SAXReader();
+    Document document = reader.read(new File("src/main/resources/xml/book.xml"));
+
+    Element price = document.getRootElement().element("书").element("售价");
+    price.getParent().remove(price);
+
+    OutputFormat format = OutputFormat.createPrettyPrint();
+    format.setEncoding("UTF-8");
+
+    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"), format);
+    writer.write(document);
+    writer.close();
+  }
+
+  @Test
+  public void update() throws Exception {
+    SAXReader reader = new SAXReader();
+    Document document = reader.read(new File("src/main/resources/xml/book.xml"));
+
+    Element book = (Element) document.getRootElement().elements("书").get(1);
+    book.element("作者").setText("abc");
+
+    OutputFormat format = OutputFormat.createPrettyPrint();
+    format.setEncoding("UTF-8");
+
+    XMLWriter writer = new XMLWriter(new FileOutputStream("src/main/resources/xml/book.xml"), format);
     writer.write(document);
     writer.close();
   }
