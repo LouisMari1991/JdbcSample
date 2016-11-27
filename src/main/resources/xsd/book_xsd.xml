@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<sync:书架 xmlns:sync="http://www.sync.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sync.com book.xsd">
+
+  <sync:书>
+    <sync:书名>JavaScript</sync:书名>
+    <sync:作者>syzzz</sync:作者>
+    <sync:售价></sync:售价>
+  </sync:书>
+
+</sync:书架>
