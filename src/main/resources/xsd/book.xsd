@@ -4,14 +4,31 @@
     elementFormDefault="qualified">
 
   <xs:element name='书架'>
+    <xs:attribute name="xxx" type="xs:string"/>
     <xs:complexType>
       <xs:sequence maxOccurs="unbounded">
         <xs:element name='书'>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name='书名' type="xs:string"/>
+              <xs:element name='书名'>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Java"/>
+                    <xs:enumeration value="C++"/>
+                    <xs:enumeration value="Python"/>
+                    <xs:enumeration value="Ruby"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name='作者' type="xs:string"/>
-              <xs:element name='售价' type="xs:string"/>
+              <xs:element name='售价'>
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="20"/>
+                    <xs:maxInclusive value="120"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

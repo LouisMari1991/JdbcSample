@@ -5,9 +5,11 @@
     xsi:schemaLocation="http://www.sync.com book.xsd">
 
   <sync:书>
-    <sync:书名>JavaScript</sync:书名>
+    <!--限定了枚举类型:Java,C++,Python,Ruby-->
+    <sync:书名>Java</sync:书名>
     <sync:作者>syzzz</sync:作者>
-    <sync:售价></sync:售价>
+    <!--限定售价范围:20-120-->
+    <sync:售价>20</sync:售价>
   </sync:书>
 
 </sync:书架>
