@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persons xmlns="http://www.sync.sz"
+         xmlns:child="http://www.sync.sz.children"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sync.sz family.xsd http://www.sync.sz.children children.xsd"
+>
+
+    <person>
+        <firstname>nide</firstname>
+        <lastname>baba</lastname>
+        <child:children>
+            <child:childname>erzi</child:childname>
+        </child:children>
+    </person>
+</persons>
