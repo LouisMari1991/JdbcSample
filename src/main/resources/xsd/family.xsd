@@ -4,6 +4,12 @@
            elementFormDefault="qualified">
     <xs:element name="persons">
         <xs:complexType>
+            <xs:annotation>
+                <xs:documentation source="description">
+                    any元素使我们有能力通过未被 schema 规定的元素来拓展 XML 文档！
+                    anyAttribute 元素使我们有能力通过未被 schema 规定的属性来扩展 XML 文档！
+                </xs:documentation>
+            </xs:annotation>
             <xs:all>
                 <xs:element name="person">
                     <xs:complexType>
