@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persons xmlns="http://www.sync.sz"
          xmlns:child="http://www.sync.sz.children"
+         xmlns:gender="http://www.sync.sz.attr"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.sync.sz family.xsd http://www.sync.sz.children children.xsd"
->
+         xsi:schemaLocation="http://www.sync.sz family.xsd
+                             http://www.sync.sz.attr attribute.xsd">
 
     <person>
-        <firstname>nide</firstname>
-        <lastname>baba</lastname>
+        <firstname>your</firstname>
+        <lastname>father</lastname>
+    </person>
+
+    <person>
+        <firstname>baba</firstname>
+        <lastname>nide</lastname>
         <child:children>
-            <child:childname>erzi</child:childname>
+            <child:childname>sson</child:childname>
         </child:children>
     </person>
+
+    <person gender:gender="female">
+        <firstname>yours</firstname>
+        <lastname>fa</lastname>
+        <child:children>
+            <child:childname>sons1</child:childname>
+        </child:children>
+    </person>
+
+
 </persons>

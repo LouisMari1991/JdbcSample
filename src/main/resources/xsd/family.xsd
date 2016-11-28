@@ -12,6 +12,7 @@
                             <xs:element name="lastname" type="xs:string"/>
                             <xs:any minOccurs="0"/>
                         </xs:sequence>
+                        <xs:anyAttribute/>
                     </xs:complexType>
                 </xs:element>
             </xs:all>
