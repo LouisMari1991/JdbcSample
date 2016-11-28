@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--xmlns后面直接接uri,使用默认命名空间-->
+<shiporder xmlns="http://www.sync.sz"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.sync.sz shiporder_refactor.xsd" orderid="a1">
+
+    <orderperson>synczzz</orderperson>
+
+    <shipto>
+        <name>aaa</name>
+        <address>shenzhenbaoanqu</address>
+        <city>shenzhen</city>
+        <country>china</country>
+    </shipto>
+
+    <item>
+        <title>abca</title>
+        <quantity>12</quantity>
+        <price>99.9</price>
+    </item>
+    <item>
+        <title>asd</title>
+        <quantity>12</quantity>
+        <price>99.9</price>
+    </item>
+    <item>
+        <title>aasdasdbca</title>
+        <quantity>12</quantity>
+        <price>99.9</price>
+    </item>
+
+</shiporder>
