@@ -20,10 +20,10 @@
         <xs:element name="item" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="title" type="xs:string"/>
+              <xs:element name="title" type="title_limit"/>
               <xs:element name="note" type="xs:element" minOccurs="0"/>
               <xs:element name="quantity" type="xs:positiveInteger"/>
-              <xs:element name="price" type="xs:decimal"/>
+              <xs:element name="price" type="price_limit"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -31,5 +31,22 @@
       <xs:attribute name="orderid" type="xs:string" use="required"/>
     </xs:complexType>
   </xs:element>
+
+  <!--限制price价格-->
+  <xs:simpleType name="price_limit">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--title长度和内容的限制-->
+  <xs:simpleType name="title_limit">
+      <xs:restriction base="xs:string">
+          <xs:maxLength value="20"/>
+          <xs:pattern value="([a-z])*"/>
+      </xs:restriction>
+  </xs:simpleType>  
+    
 
 </xs:schema>

@@ -10,7 +10,7 @@
         <xs:element name='书'>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name='书名'>
+              <xs:element name='书名' maxOccurs="1" minOccurs="1">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:enumeration value="Java"/>
@@ -20,20 +20,20 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name='作者' type="xs:string"/>
-              <xs:element name='售价'>
-                <xs:simpleType>
-                  <xs:restriction base="xs:integer">
-                    <xs:minInclusive value="20"/>
-                    <xs:maxInclusive value="120"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name='作者' type="xs:string" maxOccurs="5" minOccurs="1"/>
+              <xs:element name='售价' maxOccurs="5" minOccurs="1" type="price_limit"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+    
+  <xs:simpleType name="price_limit">
+      <xs:restriction base="xs:decimal">
+          <xs:minInclusive value="19.9"/>
+          <xs:maxInclusive value="120.9"/>
+      </xs:restriction>
+  </xs:simpleType>  
 
 </xs:schema>
